@@ -20,6 +20,7 @@ namespace ECO.SceneManagement
         {
             if(IsKernel)
             {
+                ProcessorScene.Initialize();
                 ProcessorScene.PrepareKernel(this);
             }
             ProcessorScene.AddToLoading(SceneDependsOn, this);

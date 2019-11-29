@@ -19,6 +19,19 @@ namespace ECO.SceneManagement
         static SceneStarter _mainStarter;
         static SceneKernel _kernel;
         static Coroutine _coroutine;
+
+        public static void Initialize()
+        {
+            _sceneDependsOn = new Queue<string>();
+            _scenesDependsOnAvailable = new HashSet<string>();
+            _sceneRegisteredSetups = new Queue<SceneSetup>();
+            _scenePostBuildSetups = new Queue<SceneSetup>();
+
+            _mainStarter = null;
+            _kernel = null;
+            _coroutine = null;
+        }
+
         public static void PrepareKernel(SceneStarter mainStarter)
         {
             if (_kernel != null) throw new Exception("Kernel has already created. You can have only one Kernel per Domain");
